@@ -1,0 +1,9 @@
+---
+IndentWidth: 4
+---
+Language: Cpp
+ColumnLimit: 90
+DerivePointerAlignment: false
+PointerAlignment: Left
+SpaceBeforeCpp11BracedList: true
+AlignConsecutiveAssignments: true

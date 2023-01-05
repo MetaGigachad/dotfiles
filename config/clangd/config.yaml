@@ -1,0 +1,4 @@
+If:
+  PathMatch: .*\.(cpp|hpp)
+CompileFlags:
+  Add: [-Wall, -std=gnu++17]

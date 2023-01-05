@@ -1,0 +1,4 @@
+source .vimrc;
+let mapleader = " ";
+set NERDTree;
+map <leader>e :NERDTreeToggle<CR>;
