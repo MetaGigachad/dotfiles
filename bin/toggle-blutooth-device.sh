@@ -1,0 +1,12 @@
+#!/bin/bash
+
+device_mac="$1"
+
+is_connected="$(bluetoothctl info $device_mac | awk '/Connected:/ {print $2}')"
+
+if [ "$is_connected" = "no" ]; then
+    bluetoothctl connect $device_mac
+else
+    bluetoothctl disconnect $device_mac
+fi
+

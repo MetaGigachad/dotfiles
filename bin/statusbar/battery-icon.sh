@@ -1,6 +1,5 @@
 #!/bin/bash
 
-PERCENTAGE=$(acpi -b | cut -d',' -f2 | xargs)
 STATUS=$(acpi -b | cut -d',' -f1 | cut -d':' -f2 | xargs)
 
 if [[ "$STATUS" == "Charging" || "$STATUS" == "Full" ]]; then
@@ -13,4 +12,4 @@ if [[ "$STATUS" == "Discharging" ]]; then
   STATUS_ICON=""
 fi
 
-echo "$STATUS_ICON $PERCENTAGE"
+echo "$STATUS_ICON"

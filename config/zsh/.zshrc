@@ -58,6 +58,6 @@ eval "$(starship init zsh)"
 
 source "$ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-colorscript -e fade
+colorscript -e panes
 
 source "$ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

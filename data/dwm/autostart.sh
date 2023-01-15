@@ -1,4 +1,4 @@
-picom --experimental-backends &
+picom &
 xclip &
 emacs --daemon &
 
