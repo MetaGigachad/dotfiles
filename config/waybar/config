@@ -1,8 +1,15 @@
 {
 	"layer": "top",
-	"modules-left": ["wlr/workspaces", "mpd", "sway/mode"],
+	"modules-left": ["wlr/workspaces"],
 	"modules-center": [],
-	"modules-right": ["network", "pulseaudio", "temperature", "cpu", "memory", "clock"],
+	"modules-right": ["tray", "network", "pulseaudio", "battery", "clock"],
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:<b>%b %d</b> %H:%M}",
+    },
 	"mpd": {
 		"tooltip": false,
 		"format": "{stateIcon} {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
@@ -17,13 +24,16 @@
 		"tooltip": false,
 		"scroll-step": 5,
 		"format": "{icon} {volume}%",
+        "format-bluetooth": " {volume}%",
+        "format-muted":"{volume}% ﱝ",
 		"format-icons": {
-			"default": ["奄", "奔", "墳"]
+			"default": ["奄", "奔", "墳"],
+            "headphones": [""],
 		}
 	},
 	"network": {
 		"tooltip": false,
-		"format-wifi": " {essid} {ipaddr}",
+		"format-wifi": "  {essid} {ipaddr}",
 		"format-ethernet": " {ipaddr}"
 	},
 	"cpu": {
@@ -34,6 +44,11 @@
 		"tooltip": false,
 		"format": " {}%"
 	},
+    "battery": {
+        "format": "{icon}  {capacity}%",
+        "format-charging": "{capacity}% ﮣ",
+        "format-icons": ["", "", "", "", ""]
+    },
     "wlr/workspaces": {
         "format": "{icon}",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
