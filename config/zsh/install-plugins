@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+declare -A plugin_urls
+plugin_urls['zsh-autosuggestions']='https://github.com/zsh-users/zsh-autosuggestions.git'
+plugin_urls['zsh-syntax-highlighting']='https://github.com/zsh-users/zsh-syntax-highlighting.git'
+
+cd "$XDG_DATA_HOME"
+[ ! -d "zsh/plugins" ] && mkdir -p "zsh/plugins"
+cd "zsh/plugins"
+
+for plugin in "${!plugin_urls[@]}"
+do
+    if [ ! -d "$plugin" ]; then
+        git clone "${plugin_urls[$plugin]}" "$plugin"
+    else
+        echo "Plugin \"$plugin\" already exists. Reinstall it? [y/n]"
+        read reinstall
+        [ "$reinstall" = "y" ] && rm -rf "$plugin" && git clone "${plugin_urls[$plugin]}" "$plugin"
+    fi
+done

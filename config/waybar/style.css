@@ -8,6 +8,9 @@
  ********************************************
  */
 
+/* Theme */
+@import "./themes/mocha.css";
+
 * {
 	border: none;
 	border-radius: 0;
@@ -30,20 +33,10 @@ window#waybar.hidden {
     padding-right: 16px;
 	border-radius: 26px;
 	transition: none;
-	/*
-    color: #f8f8f2;
-	background: #282a36;
-    */
+    color: @text;
+	background: @base;
     color: transparent;
 	background: transparent;
-}
-
-window#waybar.termite #window,
-window#waybar.Firefox #window,
-window#waybar.Navigator #window,
-window#waybar.PCSX2 #window {
-    color: #4d4d4d;
-	background: #e6e6e6;
 }
 
 #workspaces {
@@ -51,72 +44,26 @@ window#waybar.PCSX2 #window {
 	margin-left: 12px;
 	margin-bottom: 0;
 	border-radius: 26px;
-	background: #282a36;
+	background: @base;
 	transition: none;
 }
 
 #workspaces button {
 	transition: none;
-	color: #f8f8f2;
+	color: @text;
 	background: transparent;
 	font-size: 16px;
 }
 
 #workspaces button.active {
-	color: #9aedfe;
+	color: @blue;
 }
 
 #workspaces button:hover {
 	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
-	color: #ff79c6;
-}
-
-#taskbar {
-	margin-top: 8px;
-	margin-left: 12px;
-	margin-bottom: 0;
-	border-radius: 26px;
-	background: #282a36;
-	transition: none;
-}
-
-#taskbar button {
-	transition: none;
-	color: #f8f8f2;
-	background: transparent;
-	font-size: 16px;
-}
-
-#taskbar button.active {
-	color: #9aedfe;
-}
-
-#taskbar button:hover {
-	transition: none;
-	box-shadow: inherit;
-	text-shadow: inherit;
-	color: #ff79c6;
-}
-
-#mpd {
-	margin-top: 8px;
-	margin-left: 8px;
-	padding-left: 16px;
-	padding-right: 16px;
-	margin-bottom: 0;
-	border-radius: 26px;
-	background: #282a36;
-	transition: none;
-	color: #4d4d4d;
-	background: #5af78e;
-}
-
-#mpd.disconnected,
-#mpd.stopped {
-	color: #f8f8f2;
-	background: #282a36;
+	color: @subtext;
 }
 
 #network {
@@ -127,8 +74,8 @@ window#waybar.PCSX2 #window {
 	margin-bottom: 0;
 	border-radius: 26px;
 	transition: none;
-	color: #4d4d4d;
-	background: #bd93f9;
+	color: @base;
+	background: @mauve;
 }
 
 #pulseaudio {
@@ -139,44 +86,8 @@ window#waybar.PCSX2 #window {
 	margin-bottom: 0;
 	border-radius: 26px;
 	transition: none;
-	color: #4d4d4d;
-	background: #9aedfe;
-}
-
-#temperature {
-	margin-top: 8px;
-	margin-left: 8px;
-	padding-left: 16px;
-	padding-right: 16px;
-	margin-bottom: 0;
-	border-radius: 26px;
-	transition: none;
-	color: #4d4d4d;
-	background: #5af78e;
-}
-
-#cpu {
-	margin-top: 8px;
-	margin-left: 8px;
-	padding-left: 16px;
-	padding-right: 16px;
-	margin-bottom: 0;
-	border-radius: 26px;
-	transition: none;
-	color: #4d4d4d;
-	background: #f1fa8c;
-}
-
-#memory {
-	margin-top: 8px;
-	margin-left: 8px;
-	padding-left: 16px;
-	padding-right: 16px;
-	margin-bottom: 0;
-	border-radius: 26px;
-	transition: none;
-	color: #4d4d4d;
-	background: #ff6e67;
+	color: @base;
+	background: @blue;
 }
 
 #battery {
@@ -187,8 +98,8 @@ window#waybar.PCSX2 #window {
 	margin-bottom: 0;
 	border-radius: 26px;
 	transition: none;
-	color: #4d4d4d;
-	background: #ff6e67;
+	color: @base;
+	background: @red;
 }
 
 #clock {
@@ -200,8 +111,8 @@ window#waybar.PCSX2 #window {
 	margin-bottom: 0;
 	border-radius: 26px;
 	transition: none;
-	color: #f8f8f2;
-	background: #282a36;
+	color: @text;
+	background: @base;
 }
 
 #tray {
@@ -213,6 +124,6 @@ window#waybar.PCSX2 #window {
 	margin-bottom: 0;
 	border-radius: 26px;
 	transition: none;
-	color: #f8f8f2;
-	background: #282a36;
+	color: @text;
+	background: @base;
 }

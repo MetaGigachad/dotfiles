@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+# Utilities
+alias ls="lsd -1 --blocks permission,name,date --date relative --group-dirs=first"
+alias io-tester="python ~/git/io-tester/io-tester.py"
