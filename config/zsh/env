@@ -16,3 +16,5 @@ export PATH="$PATH:$HOME/.local/bin/"
 export PATH="$PATH:$HOME/.local/bin/statusbar/"
 export PATH="$PATH:$HOME/.cargo/bin/"
 export PATH="$PATH:$XDG_DATA_HOME/JetBrains/Toolbox/scripts/"
+
+export PATH="$PATH:$HOME/.emacs.d/bin"

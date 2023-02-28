@@ -1,3 +1,4 @@
 [user]
 	name = metagigachad
 	email = 288993@gmail.com
+    sshCommand = "ssh -F ~/.ssh/config"

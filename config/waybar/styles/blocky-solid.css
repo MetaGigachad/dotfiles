@@ -1,0 +1,83 @@
+@import "../themes/catppuccin-mocha.css";
+
+* {
+	border: none;
+	border-radius: 0;
+	font-family: JetBrains Mono Nerd Font;
+	font-size: 14px;
+    background: @black;
+}
+
+window#waybar {
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#window {
+    padding-left: 16px;
+    padding-right: 16px;
+	transition: none;
+    color: @text;
+    color: transparent;
+	background: transparent;
+}
+
+#workspaces {
+	transition: none;
+}
+
+#workspaces button {
+	transition: none;
+	color: @text;
+	background: transparent;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+#workspaces button.focused {
+	color: @subtext;
+}
+
+#workspaces button:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	color: @subtext;
+}
+
+#network {
+	padding-left: 16px;
+	padding-right: 16px;
+	transition: none;
+	color: @mauve;
+}
+
+#pulseaudio {
+	padding-left: 16px;
+	padding-right: 16px;
+	transition: none;
+	color: @blue;
+}
+
+#battery {
+	padding-left: 16px;
+	padding-right: 16px;
+	transition: none;
+	color: @red;
+}
+
+#clock {
+	padding-left: 16px;
+	padding-right: 16px;
+	transition: none;
+	color: @text;
+}
+
+#tray {
+	padding-left: 16px;
+	padding-right: 16px;
+	transition: none;
+	color: @text;
+}
