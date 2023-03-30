@@ -2,7 +2,10 @@
 	"layer": "top",
 	"modules-left": ["sway/workspaces"],
 	"modules-center": [],
-	"modules-right": ["tray", "network", "pulseaudio", "battery", "clock"],
+	"modules-right": ["tray", "sway/language", "network", "pulseaudio", "battery", "clock"],
+    "sway/language": {
+        "format": "  {short}",
+    },
     "tray": {
         "icon-size": 21,
         "spacing": 10

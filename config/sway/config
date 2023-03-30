@@ -8,7 +8,7 @@ exec gnome-setup
 exec emacs --daemon
 
 # Variables
-set $mod Mod4
+set $mod Mod4 
 set $left h
 set $down j
 set $up k
@@ -29,10 +29,15 @@ assign '[class="Gimp"]' workspace 5
 assign '[class="DesktopEditors"]' workspace 5
 assign '[app_id="com.obsproject.Studio"]' workspace 6
 assign '[class="discord"]' workspace 7
-assign '[class="zoom"]' workspace 7
+assign '[app_id="zoom"]' workspace 7
 assign '[app_id="org.telegram.desktop"]' workspace 8
 assign '[class="Spotify"]' workspace 8
 assign '[class="Brave"]' workspace 9
+
+# App settings
+for_window [app_id="zoom" title="^zoom$"] border none, floating enable
+for_window [app_id="zoom" title="^(Zoom|About)$"] border pixel, floating enable
+for_window [app_id="zoom" title="Settings"] floating enable, floating_minimum_size 960 x 700
 
 # Options
 workspace_layout default
@@ -43,7 +48,6 @@ input * xkb_layout us,ru
 ## Launchers
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec rofi -show drun
-bindsym $mod+b exec brave
 bindsym $mod+Shift+e exec emacsclient -c
 ## Pulseaudio controls
 bindsym $mod+up exec pamixer -i 5
@@ -54,7 +58,7 @@ bindsym $mod+Shift+up exec brightnessctl set 5%+
 bindsym $mod+Shift+down exec brightnessctl set 5%-
 ## Utils
 bindsym $mod+Space input * xkb_switch_layout next
-bindsym $mod+s exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+Shift+p exec toggle-bluetooth-device 98:DD:60:E6:ED:52
 ## Sway controls
 bindsym $mod+Ctrl+r reload
@@ -64,10 +68,14 @@ bindsym $mod+Shift+c kill
 floating_modifier $mod normal
 bindsym $mod+Shift+space floating toggle
 ## Layouts
-bindsym $mod+Ctrl+$right splith
-bindsym $mod+Ctrl+$down splitv
-bindsym $mod+m layout tabbed
+bindsym $mod+b splith
+bindsym $mod+v splitv
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen
+bindsym $mod+m focus mode_toggle
+bindsym $mod+a focus parent
 ## Window navigation
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
@@ -77,6 +85,18 @@ bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
+## Window resize
+mode "resize" {
+    bindsym $left resize shrink width 40px
+    bindsym $down resize grow height 40px
+    bindsym $up resize shrink height 40px
+    bindsym $right resize grow width 40px
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+## Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 ## Workspace navigation
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2

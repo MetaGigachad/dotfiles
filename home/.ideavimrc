@@ -1,4 +1,60 @@
-source .vimrc;
-let mapleader = " ";
-set NERDTree;
-map <leader>e :NERDTreeToggle<CR>;
+" OPTIONS
+" - General
+set noswapfile
+set showmode
+" - Splits
+set splitbelow
+set splitright
+" - Indentation
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+" - Line numbers
+set number
+set relativenumber
+set signcolumn=yes
+" - Search
+set hlsearch
+
+" SHORTCUTS
+" - Leader key
+let g:mapleader=' '
+" - Global clipboard
+nmap <C-p> "*p
+vmap <C-p> "*p
+nmap <C-y><C-y> "*yy
+vmap <C-y> "*y
+" - Center view
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz
+nmap n nzzzv
+nmap N Nzzzv
+" - Navigation
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+nmap ge <Action>(GotoNextError)
+nmap gE <Action>(GotoPreviousError)
+nmap <leader>bp <Action>(PreviousTab)
+nmap <leader>bn <Action>(NextTab)
+nmap <leader>q <Action>(CloseContent)
+
+" - Useful actions
+nmap <leader>cf <Action>(ReformatCode)
+nmap gl <Action>(ShowErrorDescription)
+nmap <leader>r <Action>(RenameElement)
+" - Comment
+nmap gcc <Action>(CommentByLineComment)
+vmap gc <Action>(CommentByBlockComment)
+" - Search
+nmap <leader>h :nohlsearch<CR>
+" - Tool windows
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
+nmap <leader><C-t> <Action>(Terminal.OpenInTerminal)
+nmap <leader>e <Action>(ActivateProjectToolWindow)
+nmap <leader>rf <Action>(RecentFiles)
+nmap <leader>rl <Action>(RecentLocations)
+nmap <leader>ff <Action>(GotoFile)
+" - Zen mode
+nmap <leader>z <Action>(ToggleDistractionFreeMode)
