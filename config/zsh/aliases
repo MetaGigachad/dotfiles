@@ -2,4 +2,9 @@
 
 # Utilities
 alias ls="lsd -1 --blocks permission,name,date --date relative --group-dirs=first"
+alias la="ls -A"
+alias lst="tree --gitignore"
+alias lat="lst -a -I .git"
+alias lstd="lst -L"
+alias latd="lat -L"
 alias io-tester="python ~/git/io-tester/io-tester.py"

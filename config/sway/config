@@ -5,7 +5,7 @@ exec waybar --config ~/.config/waybar/configs/sway \
      --style  ~/.config/waybar/styles/blocky-solid.css
 exec swww init && swww img ~/.local/share/backgrounds/catppuccin/Street.jpg
 exec gnome-setup
-exec emacs --daemon
+# exec emacs --daemon
 
 # Variables
 set $mod Mod4 
@@ -17,22 +17,34 @@ set $right l
 set $dbase #1a1a2a
 # Theme
 include themes/catppuccin-mocha
-client.focused          $crust     $crust   $text $text
+client.focused          $surface0  $surface0    $text $surface0
 client.unfocused        $mantle    $mantle  $text
 client.focused_inactive $mantle    $mantle  $text
 client.urgent           $mantle    $mantle  $lavender
-font JetBrains Mono 11
+font Ubuntu Nerd Font Bold 11
+title_align center
+default_border pixel
+smart_borders on
 
 # Window rules
 assign '[class="Emacs"]' workspace 5
+for_window [class="Emacs"] workspace 5
 assign '[class="Gimp"]' workspace 5
+for_window [class="Gimp"] workspace 5
 assign '[class="DesktopEditors"]' workspace 5
+for_window [class="DesktopEditors"] workspace 5
 assign '[app_id="com.obsproject.Studio"]' workspace 6
+for_window [app_id="com.obsproject.Studio"] workspace 6
 assign '[class="discord"]' workspace 7
+for_window [class="discord"] workspace 7
 assign '[app_id="zoom"]' workspace 7
+for_window [app_id="zoom"] workspace 7
 assign '[app_id="org.telegram.desktop"]' workspace 8
+for_window [app_id="org.telegram.desktop"] workspace 8
 assign '[class="Spotify"]' workspace 8
+for_window [class="Spotify"] workspace 8
 assign '[class="Brave"]' workspace 9
+for_window [class="Brave"] workspace 9
 
 # App settings
 for_window [app_id="zoom" title="^zoom$"] border none, floating enable
@@ -43,12 +55,16 @@ for_window [app_id="zoom" title="Settings"] floating enable, floating_minimum_si
 workspace_layout default
 input * accel_profile flat
 input * xkb_layout us,ru
+input * xkb_options caps:escape
+input * dwt disabled
 
 # Key bindings
 ## Launchers
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec rofi -show drun
-bindsym $mod+Shift+e exec emacsclient -c
+# bindsym $mod+Shift+e exec emacsclient -c
+bindsym $mod+Shift+e exec kitty nvim ~
+bindsym $mod+b exec brave
 ## Pulseaudio controls
 bindsym $mod+up exec pamixer -i 5
 bindsym $mod+down exec pamixer -d 5
@@ -68,14 +84,13 @@ bindsym $mod+Shift+c kill
 floating_modifier $mod normal
 bindsym $mod+Shift+space floating toggle
 ## Layouts
-bindsym $mod+b splith
-bindsym $mod+v splitv
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+v splith
+bindsym $mod+s splitv
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen
-bindsym $mod+m focus mode_toggle
-bindsym $mod+a focus parent
+# bindsym $mod+m focus mode_toggle
+# bindsym $mod+a focus parent
 ## Window navigation
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down

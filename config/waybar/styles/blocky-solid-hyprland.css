@@ -6,7 +6,7 @@
 	font-family: Ubuntu Nerd Font;
     font-weight: 600;
 	font-size: 14px;
-    background: @crust;
+    background: @black;
 }
 
 window#waybar {
@@ -28,7 +28,6 @@ window#waybar.hidden {
     padding-right: 16px;
 	transition: none;
     color: @text;
-    color: transparent;
 	background: transparent;
 }
 
@@ -40,22 +39,19 @@ window#waybar.hidden {
 	transition: none;
 	color: @text;
 	background: transparent;
-	padding-left: 4px;
-	padding-right: 4px;
-}
-
-#workspaces button.focused {
-    color: @mauve;
+	padding-left: 12px;
+	padding-right: 12px;
 }
 
 #workspaces button.active {
-    color: @mauve;
+    color: @red;
 }
 
 #workspaces button:hover {
 	transition: none;
 	box-shadow: inherit;
-	color: @mauve;
+    text-shadow: 0px 0px 8px;
+	color: @red;
 }
 
 #network {

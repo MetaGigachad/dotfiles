@@ -2,7 +2,17 @@
 	"layer": "top",
 	"modules-left": ["wlr/workspaces"],
 	"modules-center": [],
-	"modules-right": ["tray", "network", "pulseaudio", "battery", "clock"],
+	"modules-right": ["tray", "hyprland/language", "network", "pulseaudio", "battery", "clock"],
+    "hyprland/window": {
+        "format": "{}",
+        "separate-outputs": true
+    },
+    "hyprland/language": {
+        "format": "  {}",
+        "format-en": "en",
+        "format-ru": "ru",
+        "keyboard-name": "at-translated-set-2-keyboard"
+    },
     "tray": {
         "icon-size": 21,
         "spacing": 10

@@ -4,14 +4,14 @@
 	"modules-center": [],
 	"modules-right": ["tray", "sway/language", "network", "pulseaudio", "battery", "clock"],
     "sway/language": {
-        "format": "  {short}",
+        "format": " {short}",
     },
     "tray": {
         "icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        "format": "{:<b>%b %d</b> %H:%M}",
+        "format": "󰥔  {:<b>%b %d</b> %H:%M}",
     },
 	"mpd": {
 		"tooltip": false,
@@ -27,29 +27,29 @@
 		"tooltip": false,
 		"scroll-step": 5,
 		"format": "{icon} {volume}%",
-        "format-bluetooth": " {volume}%",
-        "format-muted":"{volume}% ﱝ",
+		"format-muted": "󰝟 {volume}%",
+        "format-bluetooth": " {volume}%", 
 		"format-icons": {
-			"default": ["奄", "奔", "墳"],
-            "headphones": [""],
+			"default": ["󰕿", "󰖀", "󰕾"],
+            "headphones": ["󰋋"]
 		}
 	},
 	"network": {
 		"tooltip": false,
-		"format-wifi": "  {essid} {ipaddr}",
-		"format-ethernet": " {ipaddr}"
+		"format-wifi": "󰤨  {essid} {ipaddr}",
+		"format-ethernet": "󰈁 {ipaddr}"
 	},
 	"cpu": {
 		"tooltip": false,
-		"format": " {}%"
+		"format": "󰻠 {}%"
 	},
 	"memory": {
 		"tooltip": false,
 		"format": " {}%"
 	},
     "battery": {
-        "format": "{icon}  {capacity}%",
-        "format-charging": "{capacity}% ﮣ",
+        "format": "{icon}   {capacity}%",
+        "format-charging": "󰚥 {capacity}%",
         "format-icons": ["", "", "", "", ""]
     },
     "sway/workspaces": {
