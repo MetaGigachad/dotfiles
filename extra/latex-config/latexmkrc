@@ -1,0 +1,8 @@
+$pdf_mode = "1";
+$do_cd = "1";
+$emulate_aux = "1";
+
+$aux_dir = "/home/metagigachad/.local/share/latex/aux";
+$out_dir = "/home/metagigachad/.local/share/latex/out";
+
+ensure_path("TEXINPUTS", "$ENV{HOME}/.local/share/latex/src");

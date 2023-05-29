@@ -16,7 +16,15 @@ symlink-all() {
     cd $dir
 }
 
+load-extra() {
+    cd "extra/$1"
+    ./setup
+    cd $dir
+}
+
 symlink-all home "$HOME"
 symlink-all config "$XDG_CONFIG_HOME"
 symlink-all data "$XDG_DATA_HOME"
 symlink-all bin "$HOME/.local/bin"
+
+load-extra latex-config

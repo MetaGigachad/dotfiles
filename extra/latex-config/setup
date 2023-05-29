@@ -1,0 +1,15 @@
+#!/bin/sh
+
+LATEXMK_CONF_PATH="${HOME}/.config/latexmk"
+LATEX_DATA_PATH="${HOME}/.local/share/latex"
+
+rm -rf "${LATEXMK_CONF_PATH}"  
+rm -rf "${LATEX_DATA_PATH}"  
+
+mkdir "${LATEXMK_CONF_PATH}"
+mkdir "${LATEX_DATA_PATH}"
+mkdir "${LATEX_DATA_PATH}/aux"
+mkdir "${LATEX_DATA_PATH}/out"
+
+ln -sf "$PWD"/latexmkrc "${LATEXMK_CONF_PATH}"
+ln -sf "$PWD"/src "${LATEX_DATA_PATH}"

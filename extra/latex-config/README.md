@@ -1,0 +1,1 @@
+# Metagigachad's Latex Configuration

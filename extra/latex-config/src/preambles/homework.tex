@@ -1,0 +1,141 @@
+\usepackage{blindtext}
+\usepackage[a4paper]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{polynom}
+\usepackage{derivative}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.7in
+\evensidemargin=0in
+\oddsidemargin=-0.5in
+\textwidth=7.5in
+\textheight=10.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass\ \hmwkTitle}
+\cfoot{\thepage}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+	\nobreak\extramarks{}{Задача \arabic{#1} продолжение на следующей странице\ldots}\nobreak{}
+	\nobreak\extramarks{Задача \arabic{#1} (продолжение)}{Задача \arabic{#1} продолжение на следующей странице\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+	\nobreak\extramarks{Задача \arabic{#1} (продолжение)}{Задача \arabic{#1} продолжение на следующей странице\ldots}\nobreak{}
+	\stepcounter{#1}
+	\nobreak\extramarks{Задача \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Задача \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[1][-1]{
+	\ifnum#1>0
+		\setcounter{homeworkProblemCounter}{#1}
+	\fi
+	\subsection{Задача \arabic{homeworkProblemCounter}}
+	\setcounter{partCounter}{1}
+	\enterProblemHeader{homeworkProblemCounter}
+}{
+	\exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{}
+\newcommand{\hmwkDueDate}{}
+\newcommand{\hmwkClass}{}
+\newcommand{\hmwkClassTime}{}
+\newcommand{\hmwkClassInstructor}{}
+\newcommand{\hmwkAuthorName}{}
+
+%
+% Title Page
+%
+
+\title{
+	\vspace{2in}
+	\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+	\normalsize\vspace{0.1in}\small{Дедлайн:\ \hmwkDueDate}\\
+	\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}\\
+	\vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+\renewcommand{\P}[1]{\mathrm{P}\left( #1 \right)}
+\newcommand{\PR}[2]{\mathrm{P}\left( #1 \,|\, #2 \right)}
