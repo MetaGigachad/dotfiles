@@ -1,95 +1,94 @@
 @import "../themes/catppuccin-mocha.css";
 
 * {
-	border: none;
-	border-radius: 0;
-	font-family: Ubuntu Nerd Font;
-    font-weight: 600;
-	font-size: 14px;
-    background: @crust;
-}
-
-window#waybar {
+  border: none;
+  border-radius: 0;
+  font-family: Ubuntu Nerd Font;
+  font-weight: 600;
+  font-size: 14px;
+  background: @crust;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 window#waybar.hidden {
-	opacity: 0.2;
+  opacity: 0.2;
 }
 
 #language {
-	padding-left: 16px;
-	padding-right: 16px;
-	transition: none;
-	color: @green;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: none;
+  color: @green;
 }
 
 #window {
-    padding-left: 16px;
-    padding-right: 16px;
-	transition: none;
-    color: @text;
-    color: transparent;
-	background: transparent;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: none;
+  color: @text;
+  color: transparent;
+  background: transparent;
 }
 
 #workspaces {
-	transition: none;
+  transition: none;
 }
 
 #workspaces button {
-	transition: none;
-	color: @text;
-	background: transparent;
-	padding-left: 4px;
-	padding-right: 4px;
+  transition: none;
+  color: @text;
+  background: transparent;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 #workspaces button.focused {
-    color: @mauve;
+  color: @mauve;
 }
 
 #workspaces button.active {
-    color: @mauve;
+  color: @mauve;
 }
 
 #workspaces button:hover {
-	transition: none;
-	box-shadow: inherit;
-	color: @mauve;
+  transition: none;
+  box-shadow: none;
+  text-shadow: none;
+  color: @mauve;
 }
 
 #network {
-	padding-left: 16px;
-	padding-right: 16px;
-	transition: none;
-	color: @mauve;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: none;
+  color: @mauve;
 }
 
 #pulseaudio {
-	padding-left: 16px;
-	padding-right: 16px;
-	transition: none;
-	color: @blue;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: none;
+  color: @blue;
 }
 
 #battery {
-	padding-left: 16px;
-	padding-right: 16px;
-	transition: none;
-	color: @red;
-
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: none;
+  color: @red;
 }
 
 #clock {
-	padding-left: 16px;
-	padding-right: 16px;
-	transition: none;
-	color: @text;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: none;
+  color: @text;
 }
 
 #tray {
-	padding-left: 16px;
-	padding-right: 16px;
-	transition: none;
-	color: @text;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: none;
+  color: @text;
 }

@@ -3,7 +3,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY \
                                         XDG_CURRENT_DESKTOP=hyprland
 exec waybar --config ~/.config/waybar/configs/sway \
      --style  ~/.config/waybar/styles/blocky-solid.css
-exec swww init && swww img ~/.local/share/backgrounds/catppuccin/Street.jpg
+exec swaybg -i ~/.local/share/backgrounds/catppuccin/Street.jpg
 exec gnome-setup
 # exec emacs --daemon
 
