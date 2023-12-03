@@ -17,7 +17,7 @@ alias lat="lst -a -I .git"
 alias lstd="lst -L"
 alias latd="lat -L"
 
-[ -f "$ZDOTDIR/.path" ] && source "$ZDOTDIR/.path"
+[ -f "$HOME/.path" ] && source "$HOME/.path"
 plugins="$ZDOTDIR/plugins"
 source "$plugins/zsh-vi-mode/zsh-vi-mode.zsh"
 source "$plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
