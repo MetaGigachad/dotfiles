@@ -16,6 +16,7 @@ install_tmux() {
     fi
     ln -sf "$PWD/../src/.config/tmux" "$XDG_CONFIG_HOME/tmux"
     git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"   
+    printf 'Do not forget to install tmux\n'
 }
 
 load_zsh_plugins() {
@@ -50,7 +51,16 @@ install_zsh() {
     ln -sf "$PWD/../src/.config/zsh" "$XDG_CONFIG_HOME/zsh"
     ln -sf "$PWD/../src/.zshenv" "$HOME/.zshenv"
     load_zsh_plugins
-    printf 'Do not forget to install starship, lsd, tree\n'
+    printf 'Do not forget to install zsh, starship, lsd, tree\n'
+}
+
+install_nvim_config() {
+    if [ -d "$XDG_CONFIG_HOME/nvim" ]; then
+        printf 'Neovim config already installed\n'
+        return
+    fi
+    git clone 'git@github.com:MetaGigachad/nvim.git' "$XDG_CONFIG_HOME/nvim"
+    printf 'Do not forget to install neovim, pip, npm\n'
 }
 
 cd "$(dirname "$0")"
@@ -58,3 +68,5 @@ cd "$(dirname "$0")"
 check_env
 install_tmux
 install_zsh
+install_nvim_config
+
