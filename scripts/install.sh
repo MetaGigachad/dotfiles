@@ -15,6 +15,7 @@ install_tmux() {
         return
     fi
     ln -sf "$PWD/../src/.config/tmux" "$XDG_CONFIG_HOME/tmux"
+    ln -sf "$XDG_CONFIG_HOME/tmux/tmux.conf" "$HOME/.tmux.conf"
     git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"   
     printf 'Do not forget to install binary tmux\n'
 }
@@ -72,10 +73,19 @@ install_starship() {
     printf 'Do not forget to install binary starship\n'
 }
 
+install_ssh() {
+    if [ -f "$HOME/.ssh/rc" ]; then
+        printf 'Ssh already installed\n'
+        return
+    fi
+    ln -sf "$PWD/../src/.ssh/rc" "$HOME/.ssh/"
+}
+
 cd "$(dirname "$0")"
 
 check_env
 install_tmux
+install_ssh
 install_zsh
 install_starship
 install_nvim_config
