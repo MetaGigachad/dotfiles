@@ -3,10 +3,22 @@
 set -e
 
 check_env() {
-    if [ -z "$XDG_CONFIG_HOME" ]; then
-        printf 'Please set XDG_CONFIG_HOME\n'
+    if [ -z "$HOME" ]; then
+        printf 'Please set HOME\n'
         exit
     fi
+    if [ -z "$XDG_CONFIG_HOME" ]; then
+        export XDG_CONFIG_HOME="$HOME/.config"
+    fi
+}
+
+check_binaries() {
+    dependecies=(tmux zsh lsd tree nvim pip npm starship)
+    for item in "${dependecies[@]}"; do
+        if ! command -v "$item" &> /dev/null; then
+            echo "$item could not be found"
+        fi
+    done
 }
 
 install_tmux() {
@@ -17,7 +29,6 @@ install_tmux() {
     ln -sf "$PWD/../src/.config/tmux" "$XDG_CONFIG_HOME/tmux"
     ln -sf "$XDG_CONFIG_HOME/tmux/tmux.conf" "$HOME/.tmux.conf"
     git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"   
-    printf 'Do not forget to install binary tmux\n'
 }
 
 load_zsh_plugins() {
@@ -37,7 +48,7 @@ load_zsh_plugins() {
             git clone "${plugin_urls[$plugin]}" "$plugin"
         else
             echo "Plugin \"$plugin\" already exists. Reinstall it? [y/n]"
-            read reinstall
+            read -r reinstall
             [ "$reinstall" = "y" ] && rm -rf "$plugin" && git clone "${plugin_urls[$plugin]}" "$plugin"
         fi
     done
@@ -52,7 +63,6 @@ install_zsh() {
     ln -sf "$PWD/../src/.config/zsh" "$XDG_CONFIG_HOME/zsh"
     ln -sf "$PWD/../src/.zshenv" "$HOME/.zshenv"
     load_zsh_plugins
-    printf 'Do not forget to install binaries zsh, lsd, tree\n'
 }
 
 install_nvim_config() {
@@ -61,7 +71,6 @@ install_nvim_config() {
         return
     fi
     git clone 'git@github.com:MetaGigachad/nvim.git' "$XDG_CONFIG_HOME/nvim"
-    printf 'Do not forget to install binaries neovim, pip, npm\n'
 }
 
 install_starship() {
@@ -70,7 +79,6 @@ install_starship() {
         return
     fi
     ln -sf "$PWD/../src/.config/starship.toml" "$XDG_CONFIG_HOME/"
-    printf 'Do not forget to install binary starship\n'
 }
 
 install_ssh() {
@@ -89,4 +97,5 @@ install_ssh
 install_zsh
 install_starship
 install_nvim_config
+check_binaries
 

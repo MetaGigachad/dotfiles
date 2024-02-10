@@ -3,9 +3,12 @@
 set -e
 
 check_env() {
-    if [ -z "$XDG_CONFIG_HOME" ]; then
-        printf 'Please set XDG_CONFIG_HOME\n'
+    if [ -z "$HOME" ]; then
+        printf 'Please set HOME\n'
         exit
+    fi
+    if [ -z "$XDG_CONFIG_HOME" ]; then
+        export XDG_CONFIG_HOME="$HOME/.config"
     fi
 }
 
