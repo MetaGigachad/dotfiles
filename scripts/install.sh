@@ -2,30 +2,26 @@
 
 set -e
 
-check_env() {
-    if [ -z "$HOME" ]; then
-        printf 'Please set HOME\n'
-        exit
-    fi
-    if [ -z "$XDG_CONFIG_HOME" ]; then
-        export XDG_CONFIG_HOME="$HOME/.config"
-    fi
-}
+script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+source "$script_dir/common/check_env.sh"
+source "$script_dir/common/logging.sh"
 
 check_binaries() {
+    info 'Checking installed binaries'
     dependecies=(tmux zsh lsd tree nvim pip npm starship)
     for item in "${dependecies[@]}"; do
         if ! command -v "$item" &> /dev/null; then
-            echo "$item could not be found"
+            warn "$item could not be found"
         fi
     done
 }
 
 install_tmux() {
     if [ -d "$XDG_CONFIG_HOME/tmux" ]; then
-        printf 'Tmux already installed\n'
+        info 'Tmux config already installed'
         return
     fi
+    info 'Installing tmux config'
     ln -sf "$PWD/../src/.config/tmux" "$XDG_CONFIG_HOME/tmux"
     ln -sf "$XDG_CONFIG_HOME/tmux/tmux.conf" "$HOME/.tmux.conf"
     git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"   
@@ -57,9 +53,10 @@ load_zsh_plugins() {
 
 install_zsh() {
     if [ -d "$XDG_CONFIG_HOME/zsh" ]; then
-        printf 'Zsh already installed\n'
+        info 'Zsh config already installed'
         return
     fi
+    info 'Installing zsh config'
     ln -sf "$PWD/../src/.config/zsh" "$XDG_CONFIG_HOME/zsh"
     ln -sf "$PWD/../src/.zshenv" "$HOME/.zshenv"
     load_zsh_plugins
@@ -67,29 +64,32 @@ install_zsh() {
 
 install_nvim_config() {
     if [ -d "$XDG_CONFIG_HOME/nvim" ]; then
-        printf 'Neovim config already installed\n'
+        info 'Neovim config already installed'
         return
     fi
+    info 'Installing neovim config'
     git clone 'git@github.com:MetaGigachad/nvim.git' "$XDG_CONFIG_HOME/nvim"
 }
 
 install_starship() {
     if [ -f "$XDG_CONFIG_HOME/starship.toml" ]; then
-        printf 'Starship already installed\n'
+        info 'Starship already installed'
         return
     fi
+    info 'Installing starship config'
     ln -sf "$PWD/../src/.config/starship.toml" "$XDG_CONFIG_HOME/"
 }
 
 install_ssh() {
     if [ -f "$HOME/.ssh/rc" ]; then
-        printf 'Ssh already installed\n'
+        info 'Ssh config already installed'
         return
     fi
+    info 'Installing ssh config'
     ln -sf "$PWD/../src/.ssh/rc" "$HOME/.ssh/"
 }
 
-cd "$(dirname "$0")"
+cd "$script_dir"
 
 check_env
 install_tmux
@@ -98,4 +98,6 @@ install_zsh
 install_starship
 install_nvim_config
 check_binaries
+
+print_success "Installation is complete!"
 
