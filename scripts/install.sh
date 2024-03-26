@@ -68,7 +68,7 @@ install_nvim_config() {
         return
     fi
     info 'Installing neovim config'
-    git clone 'git@github.com:MetaGigachad/nvim.git' "$XDG_CONFIG_HOME/nvim"
+    git clone 'https://github.com/MetaGigachad/nvim.git' "$XDG_CONFIG_HOME/nvim"
 }
 
 install_starship() {
