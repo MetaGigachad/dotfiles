@@ -98,7 +98,7 @@ install_tmux
 install_ssh
 install_zsh
 install_starship
-install_nvim_config
+# install_nvim_config
 check_binaries
 
 print_success "Installation is complete!"
