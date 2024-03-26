@@ -92,7 +92,9 @@ install_ssh() {
 cd "$script_dir"
 
 check_env
+[ ! -d "$XDG_CONFIG_HOME" ] && mkdir -p "$XDG_CONFIG_HOME"
 install_tmux
+[ ! -d "$HOME/.ssh" ] && mkdir -p "$HOME/.ssh"
 install_ssh
 install_zsh
 install_starship
