@@ -1,0 +1,4 @@
+quote_style = "AutoPreferSingle"
+indent_type = "Spaces"
+call_parentheses = "None"
+collapse_simple_statement = "FunctionOnly"

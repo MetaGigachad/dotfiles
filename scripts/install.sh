@@ -2,6 +2,8 @@
 
 set -e
 
+SKIP_CONFIRMATIONS="$1"
+
 script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 source "$script_dir/common/check_env.sh"
 source "$script_dir/common/logging.sh"
@@ -25,6 +27,7 @@ install_tmux() {
     ln -sf "$PWD/../src/.config/tmux" "$XDG_CONFIG_HOME/tmux"
     ln -sf "$XDG_CONFIG_HOME/tmux/tmux.conf" "$HOME/.tmux.conf"
     git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"   
+    "$HOME/.tmux/plugins/tpm/bin/install_plugins"
 }
 
 load_zsh_plugins() {
@@ -44,7 +47,7 @@ load_zsh_plugins() {
             git clone "${plugin_urls[$plugin]}" "$plugin"
         else
             echo "Plugin \"$plugin\" already exists. Reinstall it? [y/n]"
-            read -r reinstall
+            [ "$SKIP_CONFIRMATIONS" = "-y" ] && reinstall="y" || read -r reinstall
             [ "$reinstall" = "y" ] && rm -rf "$plugin" && git clone "${plugin_urls[$plugin]}" "$plugin"
         fi
     done
@@ -68,7 +71,8 @@ install_nvim_config() {
         return
     fi
     info 'Installing neovim config'
-    git clone 'https://github.com/MetaGigachad/nvim.git' "$XDG_CONFIG_HOME/nvim"
+    ln -sf "$PWD/../src/.config/nvim" "$XDG_CONFIG_HOME/nvim"
+    nvim --headless "+Lazy! sync" +qa
 }
 
 install_starship() {
@@ -92,14 +96,14 @@ install_ssh() {
 cd "$script_dir"
 
 check_env
+check_binaries
 [ ! -d "$XDG_CONFIG_HOME" ] && mkdir -p "$XDG_CONFIG_HOME"
 install_tmux
 [ ! -d "$HOME/.ssh" ] && mkdir -p "$HOME/.ssh"
 install_ssh
 install_zsh
 install_starship
-# install_nvim_config
-check_binaries
+install_nvim_config
 
 print_success "Installation is complete!"
 

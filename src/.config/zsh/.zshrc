@@ -11,6 +11,7 @@ export EDITOR="nvim";
 export MANPAGER="nvim +Man!";
 export LANG=C.UTF-8
 export LC_CTYPE=C.UTF-8
+export TERM="xterm-256color"
 
 alias ls="lsd -1 --blocks permission,name,date --date relative --group-dirs=first"
 alias la="ls -A"
