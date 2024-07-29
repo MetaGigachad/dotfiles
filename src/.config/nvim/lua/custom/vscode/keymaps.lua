@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 local vscode = require 'vscode-neovim'
 
 -- Leader key
-keymap({'n', 'v'}, '<Space>', '<Nop>', opts)
+keymap({ 'n', 'v' }, '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' m'
 
