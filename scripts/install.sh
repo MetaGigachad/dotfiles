@@ -72,7 +72,7 @@ install_nvim_config() {
     fi
     info 'Installing neovim config'
     ln -sf "$PWD/../src/.config/nvim" "$XDG_CONFIG_HOME/nvim"
-    nvim --headless "+Lazy! sync" +qa
+    nvim --headless "+Lazy! restore" +qa
 }
 
 install_starship() {
