@@ -51,6 +51,10 @@ map("n", "<Space>", "", opts)
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Visual mode selection keeper on indent
+map({ "v" }, ">", ">gv", opts)
+map({ "v" }, "<", "<gv", opts)
+
 -- Map system clipboard
 map({ "n", "v", "x" }, "s", '"+', opts)
 -- keymap({ 'n', 'v', 'x' }, '<C-p>', '"+p', opts)
@@ -116,7 +120,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gd", vim.lsp.buf.definition, { buffer = args.buf })
     map("n", "gD", vim.lsp.buf.declaration, { buffer = args.buf })
     map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = args.buf })
-    map("n", "<leader>cf", vim.lsp.buf.format, { buffer = args.buf })
+    map({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { buffer = args.buf })
+    map({ "n", "v" }, "<leader>cF", ":Format<CR>", { buffer = args.buf })
     map("n", "<leader>cr", vim.lsp.buf.rename, { buffer = args.buf })
   end,
 })
