@@ -41,6 +41,8 @@ else
     echo "safe-rm could not be found"
 fi
 
+printf "\\033]2;$(whoami)@$(hostname)\\007"
+
 [ -f "$HOME/.path" ] && source "$HOME/.path"
 plugins="$ZDOTDIR/plugins"
 source "$plugins/zsh-vi-mode/zsh-vi-mode.zsh"
