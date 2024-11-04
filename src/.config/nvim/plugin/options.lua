@@ -51,3 +51,9 @@ for key, val in pairs(options) do
 end
 
 vim.cmd [[let g:netrw_banner=0]]
+
+vim.filetype.add({
+  pattern = {
+    [".*/templates/.*%.yaml"] = "helm",
+  },
+})
