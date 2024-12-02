@@ -2,7 +2,7 @@
 
 set -e
 
-apt-get update -y && apt-get install -y sudo git curl zsh tree tmux man unzip safe-rm
+apt-get update -y && apt-get install -y sudo git curl zsh tree tmux man unzip safe-rm nodejs ripgrep
 
 cd /tmp
 
