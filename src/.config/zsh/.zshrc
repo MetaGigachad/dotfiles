@@ -10,9 +10,10 @@ export SHELL="zsh";
 export CLICOLOR=1;
 export EDITOR="nvim";
 export MANPAGER="nvim +Man!";
-export LANG=C.UTF-8
-export LC_CTYPE=C.UTF-8
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
 export TERM="xterm-256color"
+export PATH="/opt/homebrew/bin:$PATH"
 
 if command -v lsd 2>&1 >/dev/null
 then
