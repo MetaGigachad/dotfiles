@@ -1,3 +1,10 @@
+local function dir_exists(path)
+  local stat = vim.loop.fs_stat(path)
+  return stat and stat.type == "directory"
+end
+
+ARCADIA_MODE = vim.fn.executable("arc") == 1 and dir_exists(os.getenv("HOME") .. "/arcadia")
+
 if vim.g.vscode then
   require "custom.vscode.keymaps"
 else
@@ -19,3 +26,6 @@ else
 
   require("lazy").setup({ import = "custom.plugins" }, { change_detection = { notify = false } })
 end
+
+require "custom.clipboard"
+require "custom.utils"

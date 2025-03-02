@@ -1,3 +1,5 @@
+fpath+=~/.zfunc
+
 zstyle ':completion:*:*:make:*' tag-order 'targets'
 autoload -U compinit; compinit
 
@@ -40,6 +42,19 @@ then
     alias rm="safe-rm"
 else
     echo "safe-rm could not be found"
+fi
+
+if command -v arc 2>&1 >/dev/null
+then
+    arc-diff() {
+        nvim -d <(arc show HEAD:$1) $1
+    }
+fi
+
+if command -v tmux 2>&1 >/dev/null
+then
+    alias ta="tmux attach"
+    alias ts="tmux list-sessions"
 fi
 
 printf "\\033]2;$(whoami)@$(hostname)\\007"
