@@ -16,6 +16,7 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export TERM="xterm-256color"
 export PATH="/opt/homebrew/bin:$PATH"
+export IS_REMOTE="1"
 
 if command -v lsd 2>&1 >/dev/null
 then

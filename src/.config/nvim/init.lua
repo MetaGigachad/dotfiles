@@ -24,8 +24,10 @@ else
   end
   vim.opt.rtp:prepend(lazypath)
 
-  require("lazy").setup({ import = "custom.plugins" }, { change_detection = { notify = false } })
+  require("lazy").setup({ import = "custom.plugins", checker = { enabled = false } }, { change_detection = { notify = false } })
 end
 
-require "custom.clipboard"
+if (os.getenv("IS_REMOTE") == "1") then
+  require "custom.clipboard"
+end
 require "custom.utils"

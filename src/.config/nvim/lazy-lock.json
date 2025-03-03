@@ -29,5 +29,6 @@
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "626998e5c1b71c130d8bc6cf7abb6709b98287bb" },
   "telescope.nvim": { "branch": "master", "commit": "589910694bafe3975d0f025a750dcabc09824126" },
-  "vim-kitty": { "branch": "main", "commit": "ceaae754267f9578b6313890596ee34a19c00dad" }
+  "vim-kitty": { "branch": "main", "commit": "ceaae754267f9578b6313890596ee34a19c00dad" },
+  "vim-signify": { "branch": "master", "commit": "8670143f9e12ed1cd3c9b2c54f345cdd9a4baac3" }
 }
