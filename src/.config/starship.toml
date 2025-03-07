@@ -1,2 +1,8 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 command_timeout=1000
 
+[hostname]
+ssh_only = false
+detect_env_vars = ['!TMUX', 'SSH_CONNECTION']
+disabled = false
