@@ -7,15 +7,15 @@ local config = function()
 end
 
 return {
-  -- {
-  --   "lewis6991/gitsigns.nvim",
-  --   config = function() require("gitsigns").setup() end,
-  -- },
+    -- {
+    --   "lewis6991/gitsigns.nvim",
+    --   config = function() require("gitsigns").setup() end,
+    -- },
   not ARCADIA_MODE and {
-    "mhinz/vim-signify",
-    config = config,
-  } or {
-    dir = "~/arcadia/junk/torkve/vim/vim-signify",
-    config = config,
-  },
+      "mhinz/vim-signify",
+      config = config,
+    } or {
+      dir = "~/arcadia/junk/torkve/vim/vim-signify",
+      config = config,
+    },
 }

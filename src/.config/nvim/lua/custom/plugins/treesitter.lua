@@ -17,15 +17,17 @@ return {
       --   max_lines = 5,
       -- }
 
-      vim.keymap.set(
-        "n",
-        "[c",
-        function() require("treesitter-context").go_to_context(vim.v.count1) end,
-        { silent = true }
-      )
+      vim.keymap.set("n", "[c", function() require("treesitter-context").go_to_context(vim.v.count1) end, { silent = true })
 
-      require('nvim-ts-autotag').setup()
+      require("nvim-ts-autotag").setup()
       vim.cmd "hi! link @tag.attribute @parameter"
     end,
   },
+  ARCADIA_MODE and {
+    dir = "~/arcadia/devtools/ide/tree-sitter-yamake",
+    build = ":TSInstall yamake",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  } or {},
 }

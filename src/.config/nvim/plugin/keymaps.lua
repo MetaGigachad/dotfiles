@@ -120,11 +120,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gd", vim.lsp.buf.definition, { buffer = args.buf })
     map("n", "gD", vim.lsp.buf.declaration, { buffer = args.buf })
     map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = args.buf })
-    map({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { buffer = args.buf })
-    map({ "n", "v" }, "<leader>cF", ":Format<CR>", { buffer = args.buf })
+    map({ "n", "v" }, "<leader>cF", vim.lsp.buf.format, { buffer = args.buf })
     map("n", "<leader>cr", vim.lsp.buf.rename, { buffer = args.buf })
   end,
 })
+
+-- Formatter
+map({ "n", "v" }, "<leader>cf", ":Format<CR>", opts)
 
 -- Telescope
 local telescope = require "telescope"
@@ -133,22 +135,21 @@ map("n", "<leader>bf", telescope.builtin.buffers, opts)
 map("n", "<leader>cd", telescope.builtin.diagnostics, opts)
 map("n", "<leader>ec", telescope.builtin.commands, opts)
 map("n", "<leader>fb", telescope.extensions.file_browser.file_browser, opts)
-map("n", "<leader>fa",
-  function() telescope.builtin.find_files { hidden = true, no_ignore = true, no_ignore_parent = true } end, opts)
+map("n", "<leader>fa", function() telescope.builtin.find_files { hidden = true, no_ignore = true, no_ignore_parent = true } end, opts)
 map("n", "<leader>fe", ":Telescope file_browser path=%:p:h<CR>", opts)
 map("n", "<leader>ff", function() telescope.builtin.find_files { hidden = true } end, opts)
 map("n", "<leader>fg", telescope.builtin.live_grep, opts)
-map('v', '<leader>fg', "\"zy<ESC>:Telescope live_grep default_text=<c-r>z<CR>", noremap)
+map("v", "<leader>fg", '"zy<ESC>:Telescope live_grep default_text=<c-r>z<CR>', noremap)
 map("n", "<leader>gf", telescope.builtin.git_files, opts)
 map("n", "<leader>cs", telescope.builtin.lsp_document_symbols, opts)
 map("n", "<leader>sm", function() telescope.builtin.man_pages { sections = { "ALL" } } end, opts)
 
 if ARCADIA_MODE then
   -- Arc Telescope
-  map('n', '<leader>ag', "<cmd>Telescope arc status<cr>", opts)
-  map('n', '<leader>af', "<cmd>Telescope arc ls_files<cr>", opts)
-  map('n', '<leader>ac', "<cmd>Telescope arc commits<cr>", opts)
-  map('n', '<leader>ab', "<cmd>Telescope arc branches<cr>", opts)
-  map('n', '<leader>as', "<cmd>Telescope arc stash<cr>", opts)
-  map('n', '<leader>ap', "<cmd>Telescope arc pr_list<cr>", opts)
+  map("n", "<leader>ag", "<cmd>Telescope arc status<cr>", opts)
+  map("n", "<leader>af", "<cmd>Telescope arc ls_files<cr>", opts)
+  map("n", "<leader>ac", "<cmd>Telescope arc commits<cr>", opts)
+  map("n", "<leader>ab", "<cmd>Telescope arc branches<cr>", opts)
+  map("n", "<leader>as", "<cmd>Telescope arc stash<cr>", opts)
+  map("n", "<leader>ap", "<cmd>Telescope arc pr_list<cr>", opts)
 end

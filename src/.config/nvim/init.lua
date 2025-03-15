@@ -2,8 +2,18 @@ local function dir_exists(path)
   local stat = vim.loop.fs_stat(path)
   return stat and stat.type == "directory"
 end
-
-ARCADIA_MODE = vim.fn.executable("arc") == 1 and dir_exists(os.getenv("HOME") .. "/arcadia")
+local function is_inside_dir(path)
+  local cwd = vim.loop.cwd()
+  while cwd ~= "/" do
+    if cwd == path then
+      return true
+    end
+    cwd = vim.fs.dirname(cwd)
+  end
+  return false
+end
+local arcadia_dir = os.getenv "HOME" .. "/arcadia"
+ARCADIA_MODE = vim.fn.executable "arc" == 1 and dir_exists(arcadia_dir) and is_inside_dir(arcadia_dir)
 
 if vim.g.vscode then
   require "custom.vscode.keymaps"
@@ -27,7 +37,7 @@ else
   require("lazy").setup({ import = "custom.plugins", checker = { enabled = false } }, { change_detection = { notify = false } })
 end
 
-if (os.getenv("IS_REMOTE") == "1") then
+if os.getenv "IS_REMOTE" == "1" then
   require "custom.clipboard"
 end
 require "custom.utils"

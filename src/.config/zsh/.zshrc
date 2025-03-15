@@ -3,6 +3,9 @@ fpath+=~/.zfunc
 zstyle ':completion:*:*:make:*' tag-order 'targets'
 autoload -U compinit; compinit
 
+setopt inc_append_history
+setopt hist_ignore_dups
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$ZDOTDIR/.zsh_history"

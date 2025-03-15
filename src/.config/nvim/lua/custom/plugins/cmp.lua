@@ -27,17 +27,13 @@ return {
       mapping = {
         ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
         ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-        ["<C-y>"] = cmp.mapping(
-          function()
-            if cmp.visible() then
-              cmp.confirm({ behavior = cmp.SelectBehavior.Insert })
-            else
-              cmp.complete()
-            end
-          end,
-          { "i", "c" }
-        ),
-
+        ["<C-y>"] = cmp.mapping(function()
+          if cmp.visible() then
+            cmp.confirm { behavior = cmp.SelectBehavior.Insert }
+          else
+            cmp.complete()
+          end
+        end, { "i", "c" }),
       },
       snippet = {
         expand = function(args) require("luasnip").lsp_expand(args.body) end,

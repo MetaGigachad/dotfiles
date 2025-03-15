@@ -1,5 +1,5 @@
 local options = {
-  fileencoding = 'utf-8',
+  fileencoding = "utf-8",
   swapfile = false,
   showmode = false,
 
@@ -19,7 +19,7 @@ local options = {
   number = true,
   numberwidth = 3,
   relativenumber = true,
-  signcolumn = 'yes',
+  signcolumn = "yes",
 
   -- Completion pop-up size
   pumheight = 12,
@@ -27,7 +27,7 @@ local options = {
 
   -- Spell check
   spell = false,
-  spelllang = 'en_us,ru',
+  spelllang = "en_us,ru",
 
   -- Folds
   -- foldcolumn = '1',
@@ -40,10 +40,10 @@ local options = {
   laststatus = 3,
 
   -- Winbar
-  winbar = '%=%f %m%=',
+  winbar = "%=%f %m%=",
 
   -- Always show substitutions
-  inccommand = 'split',
+  inccommand = "split",
 }
 
 for key, val in pairs(options) do
@@ -52,8 +52,12 @@ end
 
 vim.cmd [[let g:netrw_banner=0]]
 
-vim.filetype.add({
+vim.filetype.add {
   pattern = {
     [".*/templates/.*%.yaml"] = "helm",
   },
-})
+}
+
+if ARCADIA_MODE then
+  vim.opt.path:append(vim.env.HOME .. "/arcadia/**")
+end
