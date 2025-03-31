@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -108,6 +112,7 @@ vim.cmd "autocmd TermOpen * setlocal nonumber norelativenumber"
 -- Utils
 map("n", "<leader>h", ":nohlsearch<CR>", opts)
 map("n", "<leader>es", ":set spell!<CR>", opts)
+map("n", "<leader>ew", ":set wrap!<CR>", opts)
 
 -- Command mode unmap
 map("n", "q:", "", opts)

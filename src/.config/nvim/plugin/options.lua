@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 local options = {
   fileencoding = "utf-8",
   swapfile = false,
