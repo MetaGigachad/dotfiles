@@ -21,6 +21,11 @@ export TERM="xterm-256color"
 export PATH="/opt/homebrew/bin:$PATH"
 export IS_REMOTE="1"
 
+if command -v arc 2>&1 >/dev/null
+then
+    alias arc-cap="arc add -A; arc commit --amend --no-edit; arc push --force"
+fi
+
 if command -v lsd 2>&1 >/dev/null
 then
     alias ls="lsd --group-dirs=first"
@@ -46,13 +51,6 @@ then
     alias rm="safe-rm"
 else
     echo "safe-rm could not be found"
-fi
-
-if command -v arc 2>&1 >/dev/null
-then
-    arc-diff() {
-        nvim -d <(arc show HEAD:$1) $1
-    }
 fi
 
 if command -v tmux 2>&1 >/dev/null

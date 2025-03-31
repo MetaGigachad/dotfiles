@@ -4,6 +4,7 @@ local config = function()
   vim.g.signify_sign_delete = "_"
   vim.g.signify_sign_delete_first_line = "‾"
   vim.g.signify_sign_change_delete = "~"
+  vim.g.signify_realtime = 1
 end
 
 return {
@@ -15,7 +16,7 @@ return {
       "mhinz/vim-signify",
       config = config,
     } or {
-      dir = "~/arcadia/junk/torkve/vim/vim-signify",
+      dir = "~/.config/nvim/vimscript/vim-signify",
       config = config,
     },
 }
