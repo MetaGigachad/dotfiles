@@ -81,8 +81,7 @@ map({ "i", "t" }, "<C-k>", "<C-\\><C-N><C-w>k", opts)
 map({ "i", "t" }, "<C-l>", "<C-\\><C-N><C-w>l", opts)
 
 -- Window controls
-map("n", "<C-q>", "<C-w>q", opts)
-map({ "i", "t" }, "<C-q>", "<C-\\><C-N><C-w>q", opts)
+map({ "i", "t" }, "<C-w>q", "<C-\\><C-N><C-w>q", opts)
 map({ "i", "t" }, "<C-w>s", "<C-\\><C-N><C-w>s", opts)
 map({ "i", "t" }, "<C-v>v", "<C-\\><C-N><C-w>v", opts)
 
