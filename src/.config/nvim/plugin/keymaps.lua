@@ -109,7 +109,7 @@ map("n", "<leader>t", ":terminal<CR>i", opts)
 vim.cmd "autocmd TermOpen * setlocal nonumber norelativenumber"
 
 -- Utils
-map("n", "<leader>h", ":nohlsearch<CR>", opts)
+map({ "n", "v" }, "<leader>h", ":nohlsearch<CR>", opts)
 map("n", "<leader>es", ":set spell!<CR>", opts)
 map("n", "<leader>ew", ":set wrap!<CR>", opts)
 
@@ -133,20 +133,34 @@ vim.api.nvim_create_autocmd("LspAttach", {
 map({ "n", "v" }, "<leader>cf", ":Format<CR>", opts)
 
 -- Telescope
-local telescope = require "telescope"
-telescope.builtin = require "telescope.builtin"
-map("n", "<leader>bf", telescope.builtin.buffers, opts)
-map("n", "<leader>cd", telescope.builtin.diagnostics, opts)
-map("n", "<leader>ec", telescope.builtin.commands, opts)
-map("n", "<leader>fb", telescope.extensions.file_browser.file_browser, opts)
-map("n", "<leader>fa", function() telescope.builtin.find_files { hidden = true, no_ignore = true, no_ignore_parent = true } end, opts)
-map("n", "<leader>fe", ":Telescope file_browser path=%:p:h<CR>", opts)
-map("n", "<leader>ff", function() telescope.builtin.find_files { hidden = true } end, opts)
-map("n", "<leader>fg", telescope.builtin.live_grep, opts)
-map("v", "<leader>fg", '"zy<ESC>:Telescope live_grep default_text=<c-r>z<CR>', noremap)
-map("n", "<leader>gf", telescope.builtin.git_files, opts)
-map("n", "<leader>cs", telescope.builtin.lsp_document_symbols, opts)
-map("n", "<leader>sm", function() telescope.builtin.man_pages { sections = { "ALL" } } end, opts)
+-- local telescope = require "telescope"
+-- telescope.builtin = require "telescope.builtin"
+-- map("n", "<leader>bf", telescope.builtin.buffers, opts)
+-- map("n", "<leader>cd", telescope.builtin.diagnostics, opts)
+-- map("n", "<leader>ec", telescope.builtin.commands, opts)
+-- map("n", "<leader>fb", telescope.extensions.file_browser.file_browser, opts)
+-- map("n", "<leader>fa", function() telescope.builtin.find_files { hidden = true, no_ignore = true, no_ignore_parent = true } end, opts)
+-- map("n", "<leader>fe", ":Telescope file_browser path=%:p:h<CR>", opts)
+-- map("n", "<leader>ff", function() telescope.builtin.find_files { hidden = true } end, opts)
+-- map("n", "<leader>fg", telescope.builtin.live_grep, opts)
+-- map("v", "<leader>fg", '"zy<ESC>:Telescope live_grep default_text=<c-r>z<CR>', noremap)
+-- map("n", "<leader>gf", telescope.builtin.git_files, opts)
+-- map("n", "<leader>cs", telescope.builtin.lsp_document_symbols, opts)
+-- map("n", "<leader>sm", function() telescope.builtin.man_pages { sections = { "ALL" } } end, opts)
+
+-- Fzf
+map("n", "<leader>bf", ":FzfLua buffers<cr>", opts)
+map("n", "<leader>cd", ":FzfLua diagnostics_workspace<cr>", opts)
+map("n", "<leader>ff", ":FzfLua files<cr>", opts)
+map("n", "<leader>fg", ":FzfLua live_grep_native<cr>", opts)
+map("v", "<leader>fg", '"zy<ESC>:FzfLua live_grep_native search=<C-r>z<CR>', opts)
+map("n", "<leader>cs", ":FzfLua lsp_workspace_symbols<cr>", opts)
+
+-- Oil
+map("n", "<leader>fe", ":Oil<cr>", opts)
+
+-- Clangd
+map("n", "<leader>ch", ":ClangdSwitchSourceHeader<cr>", opts)
 
 if ARCADIA_MODE then
   -- Arc Telescope
