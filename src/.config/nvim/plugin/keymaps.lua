@@ -150,10 +150,12 @@ map({ "n", "v" }, "<leader>cf", ":Format<CR>", opts)
 
 -- Fzf
 map("n", "<leader>bf", ":FzfLua buffers<cr>", opts)
+map("n", "<leader>bl", ":FzfLua blines<cr>", opts)
 map("n", "<leader>cd", ":FzfLua diagnostics_workspace<cr>", opts)
 map("n", "<leader>ff", ":FzfLua files<cr>", opts)
 map("n", "<leader>fg", ":FzfLua live_grep_native<cr>", opts)
 map("v", "<leader>fg", '"zy<ESC>:FzfLua live_grep_native search=<C-r>z<CR>', opts)
+map("n", "<leader>fr", ":FzfLua resume<cr>", opts)
 map("n", "<leader>cs", ":FzfLua lsp_workspace_symbols<cr>", opts)
 
 -- Oil

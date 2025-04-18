@@ -22,16 +22,16 @@ return {
             require("lspconfig")[server_name].setup {
               filetypes = { "c", "cpp" },
             }
-          elseif server_name == "pyright" then
+          elseif server_name == "gopls" and ARCADIA_MODE then
             require("lspconfig")[server_name].setup {
-              single_file_support = false,
-              root_dir = ".",
+              cmd = { "ya", "tool", "gopls", "serve" },
               settings = {
-                python = {
-                  analysis = {
-                    autoSearchPaths = false,
-                    useLibraryCodeForTypes = false,
+                gopls = {
+                  arcadiaIndexDirs = {
+                    vim.fn.expand "~/arcadia/library/go",
+                    vim.fn.expand "~/arcadia/yabs/dooh/backend/main",
                   },
+                  expandWorkspaceToModule = false,
                 },
               },
             }
