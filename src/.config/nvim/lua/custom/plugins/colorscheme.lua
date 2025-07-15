@@ -5,7 +5,11 @@ return {
       "dasupradyumna/midnight.nvim",
     },
     config = function()
-      vim.cmd.colorscheme "carbonfox"
+      if vim.env.THEME_STYLE == "light" then
+        vim.cmd.colorscheme "dayfox"
+      else
+        vim.cmd.colorscheme "carbonfox"
+      end
       vim.api.nvim_set_hl(0, "CursorLine", {})
       vim.cmd "hi! link TreesitterContext Folded"
       vim.cmd "hi! link TreesitterContextLineNumber Folded"

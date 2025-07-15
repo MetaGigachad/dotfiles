@@ -23,6 +23,24 @@ else
     export IS_REMOTE="0"
 fi
 
+get_appearance() {
+  if [[ "$IS_REMOTE" == "1" ]]; then
+    echo "light"   # Always use light theme over SSH (or change to "dark" if desired)
+  elif [[ "$(uname)" == "Darwin" ]]; then
+    interface_style=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
+    if [[ "$interface_style" == "Dark" ]]; then
+      echo "dark"
+    else
+      echo "light"
+    fi
+  else
+    echo "light"  # Fallback
+  fi
+}
+
+# Load the appropriate tmux theme
+export THEME_STYLE=$(get_appearance)
+
 [ -f "$HOME/.path" ] && source "$HOME/.path"
 
 export SHELL="$(command -v zsh)"
@@ -74,6 +92,17 @@ if command -v tmux 2>&1 >/dev/null; then
     alias ts="tmux list-sessions"
 else
     echo "tmux could not be found"
+fi
+
+if command -v fzf 2>&1 >/dev/null; then
+    source <(fzf --zsh)
+    if [[ $THEME_STYLE == "dark" ]]; then
+        export FZF_DEFAULT_OPTS='--color=dark'
+    else
+        export FZF_DEFAULT_OPTS='--color=light'
+    fi
+else
+    echo "fzf could not be found"
 fi
 
 printf "\\033]2;$(whoami)@$(hostname)\\007"
